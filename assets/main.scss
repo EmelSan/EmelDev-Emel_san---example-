@@ -1,0 +1,34 @@
+@import "./fonts/stylesheets.css";
+@import "@mdi/font/css/materialdesignicons.css";
+@import "./variables.scss";
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Conv_CONSOLA;
+    overflow: hidden;
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    &::-moz-scrollbar {
+      display: none;
+      width: 0;
+    }
+}
+
+html,body{
+  background-color: red;
+}
+.v-application{
+  background-color: $background-color !important;
+}
+
+.container{
+  width: 100%;
+  padding: 0 80px;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
