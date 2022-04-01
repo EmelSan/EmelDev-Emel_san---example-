@@ -1,5 +1,5 @@
 <template>
-  <div class="about-scene">
+  <div class="branding-scene">
     <AboutCard :cardInfo="cardInfo" class="about-card" />
   </div>
 </template>
@@ -23,7 +23,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.about-scene {
+.branding-scene {
   width: 100%;
   height: 100vh;
   .about-card {

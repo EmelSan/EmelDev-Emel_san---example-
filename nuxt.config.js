@@ -38,7 +38,6 @@ export default {
     '@nuxtjs/axios',
     "@nuxtjs/i18n",
     '@nuxtjs/pwa',
-    'nuxt-fullpage.js'
   ],
 
   axios: {

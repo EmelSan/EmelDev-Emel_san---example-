@@ -17,7 +17,6 @@
     "core-js": "^3.19.3",
     "gsap": "^3.10.0",
     "nuxt": "^2.15.8",
-    "nuxt-fullpage.js": "0.0.3",
     "nuxt-sass-resources-loader": "^2.0.5",
     "three": "^0.137.5",
     "vue": "^2.6.14",

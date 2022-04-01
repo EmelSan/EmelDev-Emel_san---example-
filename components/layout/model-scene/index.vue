@@ -1,5 +1,5 @@
 <template>
-  <div class="scene-container" ref="sceneContainer">
+  <div class="scene-container">
     <canvas id="bg" class="canvas" ref="canvas"></canvas>
   </div>
 </template>
@@ -25,6 +25,7 @@ export default {
       camera: null,
       renderer: null,
       gltfLoader: null,
+      model: null,
       controls: null,
 
       mouseX: null,
@@ -44,6 +45,7 @@ export default {
       this.tl = gsap.timeline();
 
       //model
+
       this.gltfLoader.load("model/scene.gltf", (gltf) => {
         gltf.scene.scale.set(0.2, 0.2, 0.2);
         gltf.scene.position.set(0, -4, 0);
@@ -51,10 +53,10 @@ export default {
         // gltf.scene.rotation.set(0, 5, 0);
 
         this.scene.add(gltf.scene);
-        this.tl.to(gltf.scene.rotation, { y: 0, duration: 2 });
+        // this.tl.to(gltf.scene.rotation, { y: 0, duration: 2 });
         this.tl.to(
           gltf.scene.scale,
-          { x: 0.16, y: 0.16, z: 0.16, duration: 2 },
+          { x: 0.12, y: 0.12, z: 0.12, duration: 2 },
           "-=1"
         );
       });
@@ -77,7 +79,7 @@ export default {
       this.camera.position.x = 0;
       this.camera.position.y = 0;
       this.camera.position.z = 40;
-      this.scene.add(this.camera);
+      // this.scene.add(this.camera);
 
       //renderer init and settings
       this.renderer = new THREE.WebGLRenderer({
@@ -89,19 +91,42 @@ export default {
       //   this.renderer.setClearColor(new THREE.Color("#1e1e1e"), 0);
     },
     animate() {
-      const clock = new THREE.Clock();
-      const tick = () => {
-        const elapsedTime = clock.getElapsedTime();
+      requestAnimationFrame(this.animate);
 
-        this.renderer.render(this.scene, this.camera);
-        requestAnimationFrame(tick);
-      };
-      tick();
+      setTimeout(() => {
+        // this.scene.children[3].position.x += 0.1;
+        // this.scene.children[3].position.y += 0.1;
+        // this.scene.children[3].scale.y += 0.001;
+        // this.scene.children[3].scale.x += 0.001;
+        // this.scene.children[3].scale.z += 0.001;
+        // this.scene.children[2].rotation.y += 0.01;
+        // this.scene.children[2].rotation.x += 0.01;
+        this.scene.children[2].rotation.z += 0.01;
+        // console.log(this.scene.children[2].rы
+      }, 100);
+      this.renderer.render(this.scene, this.camera);
     },
+    // animate() {
+    //   const clock = new THREE.Clock();
+
+    //   const tick = () => {
+    //     const elapsedTime = clock.getElapsedTime();
+
+    //     // console.log(this.scene);
+    //     this.renderer.render(this.scene, this.camera);
+    //     requestAnimationFrame(tick);
+    //     this.scene.position.x += 0.1;
+    //   };
+    //   tick();
+    // },
   },
   mounted() {
     this.init();
     this.animate();
+    setTimeout(() => {
+      console.log("THIS SCENE", this.scene);
+      console.log("THIS RENDERER", this.renderer);
+    }, 300);
   },
 };
 </script>

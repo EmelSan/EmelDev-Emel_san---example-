@@ -1,23 +1,46 @@
 <template>
-  <!-- <div class="main-page-wrapper"> -->
-  <full-page :options="options">
-    <div class="section" data-aos="fade-up">
+  <div class="main-page-wrapper">
+    <div
+      class="section"
+      data-aos="fade-up"
+      data-aos-delay="500"
+      data-aos-duration="1000"
+    >
       <AboutScene />
     </div>
-    <div class="section" data-aos="fade-up">
+    <div
+      class="section"
+      data-aos="fade-up"
+      data-aos-delay="500"
+      data-aos-duration="1000"
+    >
       <WebServicesScene />
     </div>
-    <div class="section" data-aos="fade-up">
+    <div
+      class="section"
+      data-aos="fade-up"
+      data-aos-delay="500"
+      data-aos-duration="1000"
+    >
       <DesignScene />
     </div>
-    <div class="section" data-aos="fade-up">
+    <div
+      class="section"
+      data-aos="fade-up"
+      data-aos-delay="500"
+      data-aos-duration="1000"
+    >
       <BrandingScene />
     </div>
-    <div class="section" data-aos="fade-up">
+    <div
+      class="section"
+      data-aos="fade-up"
+      data-aos-delay="500"
+      data-aos-duration="1000"
+    >
       <UiUxScene />
     </div>
-  </full-page>
-  <!-- </div> -->
+  </div>
 </template>
 
 <script>
@@ -35,25 +58,22 @@ export default {
     UiUxScene,
   },
   data() {
-    return {
-      options: {
-        paddingTop: "0px",
-        scrollingSpeed: "500",
-        scrollBar: true,
-        loopTop: true,
-        loopBottom: true,
-      },
-    };
+    return {};
   },
-  // destroyed() {
-  //   $.fn.fullpage.destroy("all");
-  // },
 };
 </script>
 
 <style lang="scss" scoped>
-.section {
-  width: 100%;
-  height: 100vh;
+.main-page-wrapper {
+  // width: 100%;
+  // height: 100vh;
+  // overflow-y: scroll !important;
+  // scroll-snap-type: y mandatory !important;
+
+  .section {
+    // scroll-snap-align: start !important;
+    width: 100%;
+    height: 100%;
+  }
 }
 </style>
