@@ -60,11 +60,6 @@ export default {
       this.anim.setSpeed(0.34);
     },
   },
-  mounted() {
-    setTimeout(() => {
-      console.log("SIZES", this.width, this.height);
-    }, 300);
-  },
 };
 </script>
 

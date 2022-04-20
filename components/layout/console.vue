@@ -41,12 +41,6 @@ export default {
     };
   },
   methods: {
-    typingPlaceholder() {
-      this.placeholder += this.$t("mainPage.console.title").charAt(this.i);
-      this.$refs.consoleInput.setAttribute("placeholder", this.placeholder);
-      this.i++;
-      setTimeout(this.typingPlaceholder, 200);
-    },
     submitCommand(event) {
       let command = this.$refs["consoleInput"].value;
       if (command === commands.changeLang) {
@@ -66,7 +60,6 @@ export default {
         }
       } else if (command === commands.clear) {
         this.enteredCommands = [];
-        console.log(this.$refs.enteredCommand);
       } else if (command === commands.close) {
         this.enteredCommands.push(
           "* " + `${this.$t("mainPage.console.close")}`
@@ -79,7 +72,6 @@ export default {
           "* " + command + ` : ${this.$t("mainPage.console.unknown")}`
         );
       }
-      console.log(this.$refs.enteredCommands.scrollHeight);
       setTimeout(() => {
         this.$refs.enteredCommands.scrollTo(
           0,
