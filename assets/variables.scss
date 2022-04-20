@@ -1,8 +1,21 @@
 $body-font-family: "Conv_CONSOLA";
 $main-color: #1E1E1E;
-$background-color: #1E1E1E;
+$background-color: #141414;
 $first-link-color: #01D306;
 $second-link-color: #FFD645;
 $first-text-color: #f0f0f0;
+$second-text-color: #7a7a7a;
+
+$button-red-color: #EC6A5F;
+$button-yellow-color: #F4BF4E;
+$button-green-color: #62C554;
+
+$main-wrapper-width: 1920px;
+
+$large-desktops: 1440px;
+$desktops: 1280px;
+$tablets: 1024px;
+$phones: 768px;
+$small-phones: 480px;
 
 @import "~vuetify/src/styles/styles.sass";  

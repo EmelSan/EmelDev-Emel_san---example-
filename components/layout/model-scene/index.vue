@@ -15,6 +15,7 @@ export default {
     return {
       scene: null,
       pointLight: null,
+      pointLightTwo: null,
       ambientLight: null,
       geometry: null,
       particlesGeometry: null,
@@ -34,7 +35,11 @@ export default {
       tl: null,
     };
   },
-
+  watch: {
+    camera(val) {
+      console.log(val);
+    },
+  },
   methods: {
     init() {
       this.gltfLoader = new GLTFLoader();
@@ -45,41 +50,62 @@ export default {
       this.tl = gsap.timeline();
 
       //model
-
       this.gltfLoader.load("model/scene.gltf", (gltf) => {
-        gltf.scene.scale.set(0.2, 0.2, 0.2);
-        gltf.scene.position.set(0, -4, 0);
-        gltf.scene.rotation.set(0, 3.3, 0);
-        // gltf.scene.rotation.set(0, 5, 0);
+        this.model = gltf;
+        // gltf.scene.scale.set(0.1, 0.1, 0.1);
+        gltf.scene.position.set(-25, -16, 0);
+        gltf.scene.rotation.set(0, -30, 0);
 
         this.scene.add(gltf.scene);
         // this.tl.to(gltf.scene.rotation, { y: 0, duration: 2 });
-        this.tl.to(
-          gltf.scene.scale,
-          { x: 0.12, y: 0.12, z: 0.12, duration: 2 },
-          "-=1"
-        );
+        // this.tl.to(
+        //   gltf.scene.scale,
+        //   { x: 1.12, y: 1.12, z: 1.12, duration: 2 },
+        //   "-=1"
+        // );
       });
+      // this.tl.to(this.camera.position.x, { x: 100 });
 
       //lights
-      this.ambientLight = new THREE.AmbientLight(0xffffff, 0.4);
-      this.pointLight = new THREE.PointLight(0x1201ff, 0.6);
-      this.pointLight.position.x = 2;
-      this.pointLight.position.y = 3;
-      this.pointLight.position.z = 60;
+      this.ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+      this.pointLight = new THREE.PointLight(0x351f39, 1);
+      this.pointLight.position.x = 0;
+      this.pointLight.position.y = 0;
+      this.pointLight.position.z = 20;
+      this.pointLightTwo = new THREE.PointLight(0x351f39, 1);
+      this.pointLightTwo.position.x = 0;
+      this.pointLightTwo.position.y = 0;
+      this.pointLightTwo.position.z = -20;
 
-      this.scene.add(this.pointLight, this.ambientLight);
+      const sphereSize = 2;
+      const pointLightHelper = new THREE.PointLightHelper(
+        this.pointLight,
+        sphereSize
+      );
+      const pointLightHelperTwo = new THREE.PointLightHelper(
+        this.pointLightTwo,
+        sphereSize
+      );
+
+      this.scene.add(
+        this.pointLight,
+        // pointLightHelper,
+        this.pointLightTwo
+        // pointLightHelperTwo
+        // this.ambientLight
+      );
+      // this.scene.add(new THREE.AxesHelper(5000));
+
       //camera init and settings
       this.camera = new THREE.PerspectiveCamera(
         75,
         window.innerWidth / window.innerHeight,
         0.1,
-        100
+        5000
       );
-      this.camera.position.x = 0;
-      this.camera.position.y = 0;
-      this.camera.position.z = 40;
-      // this.scene.add(this.camera);
+      // this.camera.position.x = 0;
+      // this.camera.position.y = -10;
+      this.camera.position.z = 30;
 
       //renderer init and settings
       this.renderer = new THREE.WebGLRenderer({
@@ -88,44 +114,57 @@ export default {
       });
       this.renderer.setSize(window.innerWidth, window.innerHeight);
       this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-      //   this.renderer.setClearColor(new THREE.Color("#1e1e1e"), 0);
+
+      // this.controls = new OrbitControls(this.camera, this.renderer.domElement);
     },
     animate() {
       requestAnimationFrame(this.animate);
 
+      let mouseX;
+      let mouseY;
+      function animateParticles(event) {
+        mouseX = event.clientX;
+        mouseY = event.clientY;
+      }
+      document.addEventListener("mousemove", animateParticles);
+
       setTimeout(() => {
-        // this.scene.children[3].position.x += 0.1;
-        // this.scene.children[3].position.y += 0.1;
-        // this.scene.children[3].scale.y += 0.001;
-        // this.scene.children[3].scale.x += 0.001;
-        // this.scene.children[3].scale.z += 0.001;
-        // this.scene.children[2].rotation.y += 0.01;
-        // this.scene.children[2].rotation.x += 0.01;
-        this.scene.children[2].rotation.z += 0.01;
-        // console.log(this.scene.children[2].rы
-      }, 100);
+        this.camera.position.x = window.scrollY * -0.001;
+        this.camera.position.y = window.scrollY * 0.001;
+
+        this.camera.rotation.x = window.scrollY * -0.0001;
+        this.camera.rotation.y = window.scrollY * -0.0001;
+        // this.camera.rotation.z = window.scrollY * 0.002;
+        // this.camera.position.z = window.scrollY * 0.001;
+        // window.addEventListener("scroll", () => {});
+        // this.camera.position.x += -0.002;
+        // this.camera.position.y += -0.02;
+        // this.camera.position.z += -0.002;
+        // if (mouseX > -1) {
+        //   this.camera.rotation.x = mouseY * -0.00001;
+        //   this.camera.rotation.y = mouseX * -0.00001;
+        // }
+        // this.camera.rotation.x += 0.009;
+        // this.camera.rotation.y += 0.02;
+        // this.camera.rotation.z += 0.0009;
+        this.model.scene.rotation.x += 0.0001;
+        // this.model.scene.rotation.y += 0.02;
+        this.model.scene.rotation.z += 0.0001;
+        // this.model.scene.position.x += 0.2;
+        // this.model.scene.position.y += 0.2;
+        // this.model.scene.position.z += 0.2;
+      }, 300);
+      // this.controls.update();
+
       this.renderer.render(this.scene, this.camera);
     },
-    // animate() {
-    //   const clock = new THREE.Clock();
-
-    //   const tick = () => {
-    //     const elapsedTime = clock.getElapsedTime();
-
-    //     // console.log(this.scene);
-    //     this.renderer.render(this.scene, this.camera);
-    //     requestAnimationFrame(tick);
-    //     this.scene.position.x += 0.1;
-    //   };
-    //   tick();
-    // },
   },
   mounted() {
     this.init();
     this.animate();
     setTimeout(() => {
-      console.log("THIS SCENE", this.scene);
-      console.log("THIS RENDERER", this.renderer);
+      console.log("MODEL", this.model);
+      console.log("CAMERA", this.camera.rotation);
     }, 300);
   },
 };

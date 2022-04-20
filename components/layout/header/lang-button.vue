@@ -1,9 +1,18 @@
 <template>
   <div>
-    <v-btn color="transparent" depressed plain @click="changeLang">
-      <span class="lang">{{
-        `/${$t("header.lang")} = ${currentLang.iso}`
+    <v-btn
+      color="transparent"
+      depressed
+      plain
+      @click="changeLang"
+      height="30px"
+    >
+      <span v-if="$device.IS_MOBILE" class="lang">{{
+        `/${$t("header.lang")}`
       }}</span>
+      <span v-else class="lang">
+        {{ `/${$t("header.lang")} = ${currentLang.iso}` }}
+      </span>
     </v-btn>
   </div>
 </template>

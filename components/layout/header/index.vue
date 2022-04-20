@@ -1,11 +1,11 @@
 <template>
-  <div class="layout-header pt-10">
+  <div class="layout-header">
     <div class="container">
       <div class="logo">
         <img src="~/static/images/logo.png" alt="emel-san logo" />
       </div>
       <div class="buttons">
-        <div class="contacts mr-10">
+        <div class="contacts">
           <ContactButton />
         </div>
         <div class="language-selector">
@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import ContactButton from "./contact.button.vue";
+import ContactButton from "./contact-button.vue";
 import LangButton from "./lang-button.vue";
 
 export default {
@@ -32,25 +32,42 @@ export default {
 .layout-header {
   width: 100%;
   position: fixed;
-  // background-color: $background-color;
-  // color: #1201ff;
   top: 0;
   left: 0;
-  z-index: 999;
+  z-index: 9999;
+  padding-top: 40px;
+  padding-bottom: 10px;
+  @include max($tablets) {
+    padding-top: 20px;
+  }
   .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 0 80px;
+    @include max($tablets) {
+      padding: 0 24px;
+    }
+    @include max($small-phones) {
+      padding: 0 8px;
+    }
     .logo {
       width: 110px;
       height: 81px;
+      @include max($tablets) {
+        width: 86px;
+        height: 59px;
+      }
       img {
         user-select: none;
-        width: 100%;
+        height: 100%;
       }
     }
     .buttons {
       display: flex;
+      @include max($small-phones) {
+        flex-direction: column-reverse;
+      }
     }
   }
 }

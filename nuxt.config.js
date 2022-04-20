@@ -23,7 +23,8 @@ export default {
   },
 
   plugins: [
-    '~/plugins/aos'
+    '~/plugins/aos',
+    { src: "~/plugins/device", mode: "client", ssr: false }
   ],
 
   components: true,
@@ -55,6 +56,10 @@ export default {
           'first-link-color': '#01D306',
           'second-link-color': '#FFD645',
           'first-text-color': '#f0f0f0',
+          'second-text-color': '#7a7a7a',
+          'button-red-color': '#EC6A5F',
+          'button-yellow-color': '#F4BF4E',
+          'button-green-color': '#62C554',
         }
       }
     }
