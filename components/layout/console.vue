@@ -65,6 +65,7 @@ export default {
           "* " + `${this.$t("mainPage.console.close")}`
         );
         setTimeout(() => {
+          window.open(location.href, "_self", "");
           window.close();
         }, 2000);
       } else {

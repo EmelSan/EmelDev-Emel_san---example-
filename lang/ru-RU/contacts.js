@@ -1,14 +1,14 @@
 export default {
     contactsMain: {
         title: "Контакты",
-        phoneTitle: "Телефон №1",
-        phone: "+993 6611 2233",
-        mobilePhoneTitle: "Телефон №2",
-        mobilePhone: "+993 6611 2233",
+        phoneTitle: "Офис",
+        phone: "+993 6377 7279",
+        mobilePhoneTitle: "Менеджер по продажам",
+        mobilePhone: "+993 6414 9118",
         adressTitle: "Адрес",
-        adress: " ул.Example про. Adress",
+        adress: "ул. А. Ниязова, 174, Ашхабад, Туркменистан",
         mailTitle: "Почта",
-        mail: "emelSan@emel.dev"
+        mail: "hello@emel.dev"
     },
     socials: {
         title: "Следите за нами в социальных сетях",

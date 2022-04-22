@@ -29,5 +29,11 @@ export default {
   .about-card {
     margin-top: 35vh;
   }
+  @include max($phones) {
+    height: 100vh;
+    .about-card {
+      margin-top: 25vh;
+    }
+  }
 }
 </style>

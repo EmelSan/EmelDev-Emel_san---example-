@@ -1,5 +1,5 @@
 <template>
-  <v-card dark outlined color="#000000" class="contacts-card">
+  <v-card dark outlined color="#141414" class="contacts-card">
     <v-card-actions class="contacts-card-buttons">
       <v-btn
         color="button-green-color"
@@ -30,19 +30,51 @@
       <h1 class="contacts-title first-link-color--text">
         {{ $t("contacts.contactsMain.title") }}
       </h1>
-      <div
+      <a
         class="contact-item"
-        v-for="(item, index) in contactsInfo"
-        :key="index"
+        :href="'tel:' + $t('contacts.contactsMain.mobilePhone')"
       >
-        <span class="item-title first-text-color--text">{{ item.title }}</span>
-        <span class="item-description second-text-color--text">{{
-          item.description
-        }}</span>
+        <span class="item-title first-text-color--text">
+          {{ $t("contacts.contactsMain.mobilePhoneTitle") }}
+        </span>
+        <span class="item-description second-text-color--text">
+          {{ $t("contacts.contactsMain.mobilePhone") }}
+        </span>
+      </a>
+      <a
+        class="contact-item"
+        :href="'tel:' + $t('contacts.contactsMain.phone')"
+      >
+        <span class="item-title first-text-color--text">
+          {{ $t("contacts.contactsMain.phoneTitle") }}
+        </span>
+        <span class="item-description second-text-color--text">
+          {{ $t("contacts.contactsMain.phone") }}
+        </span>
+      </a>
+
+      <div class="contact-item">
+        <span class="item-title first-text-color--text">
+          {{ $t("contacts.contactsMain.adressTitle") }}
+        </span>
+        <span class="item-description second-text-color--text">
+          {{ $t("contacts.contactsMain.adress") }}
+        </span>
       </div>
+      <a
+        class="contact-item"
+        :href="'mailto:' + $t('contacts.contactsMain.mail')"
+      >
+        <span class="item-title first-text-color--text">
+          {{ $t("contacts.contactsMain.mailTitle") }}
+        </span>
+        <span class="item-description second-text-color--text">
+          {{ $t("contacts.contactsMain.mail") }}
+        </span>
+      </a>
     </div>
 
-    <div class="social-info">
+    <!-- <div class="social-info">
       <h1 class="social-title second-link-color--text">
         {{ $t("contacts.socials.title") }}
       </h1>
@@ -52,44 +84,12 @@
           item.description
         }}</span>
       </div>
-    </div>
+    </div> -->
   </v-card>
 </template>
 
 <script>
 export default {
-  data() {
-    return {
-      contactsInfo: [
-        {
-          title: this.$t("contacts.contactsMain.phoneTitle"),
-          description: this.$t("contacts.contactsMain.phone"),
-        },
-        {
-          title: this.$t("contacts.contactsMain.mobilePhoneTitle"),
-          description: this.$t("contacts.contactsMain.mobilePhone"),
-        },
-        {
-          title: this.$t("contacts.contactsMain.adressTitle"),
-          description: this.$t("contacts.contactsMain.adress"),
-        },
-        {
-          title: this.$t("contacts.contactsMain.mailTitle"),
-          description: this.$t("contacts.contactsMain.mail"),
-        },
-      ],
-      socialInfo: [
-        {
-          title: this.$t("contacts.socials.telegram"),
-          description: this.$t("contacts.socials.telegramAdress"),
-        },
-        {
-          title: this.$t("contacts.socials.instagram"),
-          description: this.$t("contacts.socials.instagramAdress"),
-        },
-      ],
-    };
-  },
   methods: {
     closePopup() {
       this.$emit("closePopup");
@@ -100,7 +100,7 @@ export default {
 
 <style lang="scss" scoped>
 .contacts-card {
-  padding: 24px 40px 40px 40px;
+  padding: 24px 30px 30px 30px;
   .contacts-card-buttons {
     padding: 0 !important;
     display: flex;
@@ -114,31 +114,44 @@ export default {
     }
     .contact-item {
       cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      margin: 8px 0;
+      text-decoration: none;
+      transition: 0.3s;
+      padding: 0 0 0 16px;
+      &:hover {
+        background-color: rgba($color: #ffffff, $alpha: 0.06);
+        border-radius: 2px;
+        // padding: 2px 18px;
+      }
       .item-title {
         display: inline-block !important;
-        width: 100px !important;
+        width: 34% !important;
         font-size: 18px;
       }
       .item-description {
         display: inline-block !important;
-        padding-left: 20px;
+        width: 64% !important;
         font-size: 18px;
       }
     }
     @include max($phones) {
       margin-top: 30px;
+      padding: 0;
       .contacts-title {
         font-size: 16px;
         margin-bottom: 10px;
       }
       .contact-item {
+        flex-direction: column;
         .item-title {
-          width: 80px !important;
           font-size: 16px;
+          width: 100% !important;
         }
         .item-description {
           font-size: 16px;
-          padding-left: 0;
+          width: 100% !important;
         }
       }
     }

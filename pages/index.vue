@@ -22,12 +22,13 @@
 </template>
 
 <script>
-import HelloScene from "~/components/main-page/hello-scene.vue";
-import AboutScene from "~/components/main-page/about-scene.vue";
-import WebServicesScene from "~/components/main-page/web-services-scene.vue";
-import DesignScene from "~/components/main-page/design-scene.vue";
-import BrandingScene from "~/components/main-page/branding-scene.vue";
-import UiUxScene from "~/components/main-page/ui-ux-scene.vue";
+const HelloScene = () => import("~/components/main-page/hello-scene.vue");
+const AboutScene = () => import("~/components/main-page/about-scene.vue");
+const WebServicesScene = () =>
+  import("~/components/main-page/web-services-scene.vue");
+const DesignScene = () => import("~/components/main-page/design-scene.vue");
+const BrandingScene = () => import("~/components/main-page/branding-scene.vue");
+const UiUxScene = () => import("~/components/main-page/ui-ux-scene.vue");
 export default {
   components: {
     HelloScene,

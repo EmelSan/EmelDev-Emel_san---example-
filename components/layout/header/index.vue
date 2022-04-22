@@ -2,7 +2,10 @@
   <div class="layout-header">
     <div class="container">
       <div class="logo">
-        <img src="~/static/images/logo.png" alt="emel-san logo" />
+        <img
+          src="~/static/images/logo.png"
+          alt="emel-san digital agency logo"
+        />
       </div>
       <div class="buttons">
         <div class="contacts">
@@ -17,7 +20,7 @@
 </template>
 
 <script>
-import ContactButton from "./contact-button.vue";
+const ContactButton = () => import("./contact-button.vue");
 import LangButton from "./lang-button.vue";
 
 export default {

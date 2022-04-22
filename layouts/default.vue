@@ -3,7 +3,8 @@
     <v-main class="content-wrapper">
       <v-container>
         <div class="content-container">
-          <Scene class="scene" />
+          <div class="huy" v-if="$device.IS_MOBILE"></div>
+          <Scene class="scene" v-else />
           <div class="noise"></div>
           <div class="bg-animation">
             <lottie
@@ -25,9 +26,9 @@
 
 <script>
 import Header from "~/components/layout/header/index.vue";
-import Console from "~/components/layout/console.vue";
-import Scene from "~/components/layout/model-scene/index.vue";
-import lottie from "vue-lottie/src/lottie.vue";
+const Console = () => import("~/components/layout/console.vue");
+const Scene = () => import("~/components/layout/model-scene/index.vue");
+const lottie = () => import("vue-lottie/src/lottie.vue");
 import * as animationData from "~/static/animation.json";
 
 export default {
@@ -45,14 +46,6 @@ export default {
         animationSpeed: "0.1",
       },
     };
-  },
-  computed: {
-    width() {
-      return window.innerWidth;
-    },
-    height() {
-      return window.innerHeight;
-    },
   },
   methods: {
     handleAnimation(anim) {
@@ -74,6 +67,10 @@ export default {
       max-width: $main-wrapper-width;
       padding: 0 80px;
       overflow: hidden;
+      .huy {
+        color: #ffffff;
+        font-size: 30px;
+      }
       .noise::before {
         position: fixed;
         top: 0;

@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import ContactsPopupCard from "./contacts-popup-card.vue";
+const ContactsPopupCard = () => import("./contacts-popup-card.vue");
 
 export default {
   components: {

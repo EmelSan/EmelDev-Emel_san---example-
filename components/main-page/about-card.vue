@@ -1,9 +1,9 @@
 <template>
   <div
     class="about-card-wrapper"
-    data-aos="fade-up"
-    data-aos-delay="200"
-    data-aos-duration="1000"
+    data-aos="zoom-in-up"
+    data-aos-delay="100"
+    data-aos-duration="800"
     ref="abtCrd"
   >
     <h1 class="first-link-color--text card-text">
@@ -46,6 +46,10 @@ export default {
     font-size: 18px;
     font-weight: 400 !important;
     color: $first-text-color;
+  }
+  @include max($phones) {
+    width: 100%;
+    padding: 0 12px;
   }
   @include max($small-phones) {
     width: 100%;

@@ -2,11 +2,13 @@ export default {
   ssr: false,
 
   head: {
-    title: 'emel_san',
+    title: 'Emel_san - digital agency',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
+      { hid: 'description', name: 'description', content: 'Emelsan- компания, специализирующаяся на разработке масштабируемых программных приложений, программного обеспечения для бизнеса и для автоматизации. В первую очередь мы разрабатываем приложения, которые автоматизируют повседневную работу компании или организации и облегчают жизнь, делая привычное удобным' },
+      { name: 'keywords', content: 'Digital agency, IT Компания Ашхабад, Дизайн, Веб Разработка, IT, Разработка приложений' },
+      { name: 'copyright', content: 'Emelsan' },
       { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [

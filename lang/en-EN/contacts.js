@@ -1,14 +1,14 @@
 export default {
     contactsMain: {
         title: "Contacts",
-        phoneTitle: "Phone №1",
+        phoneTitle: "Office",
         phone: "+993 6611 2233",
-        mobilePhoneTitle: "Phone №2",
+        mobilePhoneTitle: "Sales Manager",
         mobilePhone: "+993 6611 2233",
         adressTitle: "Address",
-        adress: " str.Example awenue: Adress",
+        adress: "174 A.Niyazov street, Ashgabat, Turkmenistan",
         mailTitle: "Mail",
-        mail: "emelSan@emel.dev"
+        mail: "hello@emel.dev"
     },
     socials: {
         title: "Follow us on Social",
