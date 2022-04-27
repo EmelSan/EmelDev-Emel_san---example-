@@ -35,7 +35,7 @@ export default {
     height: 50vh;
     .about-card {
       left: 0;
-      margin-top: 25vh;
+      margin-top: 0;
     }
   }
 }

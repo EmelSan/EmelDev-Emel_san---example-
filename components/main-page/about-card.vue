@@ -39,6 +39,7 @@ export default {
 <style lang="scss" scoped>
 .about-card-wrapper {
   width: 470px;
+  height: auto !important;
   transition: 0.1s;
   opacity: 0;
   cursor: default;
@@ -49,13 +50,15 @@ export default {
   }
   @include max($phones) {
     width: 100%;
-    padding: 0 12px;
+    padding: 4px 12px;
   }
   @include max($small-phones) {
     width: 100%;
     padding: 0 10px;
+    // margin-bottom: 10px;
     .card-text {
       font-size: 14px;
+      height: auto;
     }
   }
 }

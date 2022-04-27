@@ -35,14 +35,13 @@ export default {
         `-> ${this.$t("mainPage.console.help.openContacts")}`,
         `-> ${this.$t("mainPage.console.help.changeLang")}`,
         `-> ${this.$t("mainPage.console.help.clear")}`,
-        `-> ${this.$t("mainPage.console.help.close")}`,
         `-> ${this.$t("mainPage.console.help.other")}`,
       ],
     };
   },
   methods: {
     submitCommand(event) {
-      let command = this.$refs["consoleInput"].value;
+      let command = this.$refs["consoleInput"].value.toLowerCase();
       if (command === commands.changeLang) {
         let [currentLang] = this.$i18n.loadedLanguages;
         let [newLang] = this.$i18n.localeCodes.filter(
@@ -60,14 +59,6 @@ export default {
         }
       } else if (command === commands.clear) {
         this.enteredCommands = [];
-      } else if (command === commands.close) {
-        this.enteredCommands.push(
-          "* " + `${this.$t("mainPage.console.close")}`
-        );
-        setTimeout(() => {
-          window.open(location.href, "_self", "");
-          window.close();
-        }, 2000);
       } else {
         this.enteredCommands.push(
           "* " + command + ` : ${this.$t("mainPage.console.unknown")}`
@@ -111,16 +102,27 @@ export default {
     }
   }
   .console-input {
-    position: fixed;
-    bottom: 16px;
-    left: 16px;
+    position: relative;
     color: $first-link-color;
     width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -ms-flex-line-pack: stretch;
+    align-content: stretch;
     form {
       width: 100%;
       input {
-        width: 90%;
+        width: 100%;
       }
     }
     ::-webkit-input-placeholder {

@@ -29,12 +29,10 @@ export default {
     console: {
         title: "* Type help and press return to see full list of commands:",
         unknown: "unknown command",
-        close: "goodbye :)",
         help: {
             clear: "'clear' - to clear the console",
             openContacts: "'openContacts' - to view a list of contacts and addresses",
             changeLang: "'changeLang' - to change the application language",
-            close: "'close' - to close the application",
             other: "other commands will be added in version 0.02a",
         }
     }
