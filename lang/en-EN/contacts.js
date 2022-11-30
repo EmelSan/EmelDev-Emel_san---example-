@@ -2,9 +2,9 @@ export default {
     contactsMain: {
         title: "Contacts",
         phoneTitle: "Office",
-        phone: "+993 6611 2233",
+        phone: "+993 6377 7279",
         mobilePhoneTitle: "Sales Manager",
-        mobilePhone: "+993 6611 2233",
+        mobilePhone: "+993 6414 9118",
         adressTitle: "Address",
         adress: "174 A.Niyazov street, Ashgabat, Turkmenistan",
         mailTitle: "Mail",
